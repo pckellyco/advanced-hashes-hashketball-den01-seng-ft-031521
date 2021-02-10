@@ -173,3 +173,15 @@ def team_names
   end
   teams
 end
+
+def num_points_scored(name)
+  game_hash.each do |location, team_info|
+    players_info = game_hash[location][:players]
+    players_info.each do |hash|
+      if hash.has_value?(name)
+        jersey_number = hash[:number]
+        return jersey_number
+      end
+    end
+  end
+end
