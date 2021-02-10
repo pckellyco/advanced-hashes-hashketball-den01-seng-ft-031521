@@ -187,3 +187,14 @@ def player_numbers(team)
   end
   team_jersey_nums
 end
+
+def player_stats(name)
+  game_hash.each do |location, team_info|
+    players_info = game_hash[location][:players]
+    players_info.each do |hash|
+      if hash.has_value?(name)
+        return hash
+      end
+    end
+  end
+end
