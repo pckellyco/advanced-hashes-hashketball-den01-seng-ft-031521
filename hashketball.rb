@@ -169,6 +169,5 @@ end
 def team_names
   game_hash.each do |location, hash|
     team_names = hash[:team_name]
-    binding.pry
   end
 end
