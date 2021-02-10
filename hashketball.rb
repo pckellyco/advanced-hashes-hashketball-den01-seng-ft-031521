@@ -178,12 +178,12 @@ def player_numbers(team)
   team_jersey_nums = []
   game_hash.each do |location, team_info|
     if team_info.has_value?(team)
+      binding.pry
       players_info = game_hash[location][:players]
       players_info.each do |hash|
         jersey_number = hash[:number]
         team_jersey_nums.push(jersey_number)
       end
-      binding.pry
     end
   end
 end
