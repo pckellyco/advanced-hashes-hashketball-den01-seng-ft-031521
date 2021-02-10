@@ -171,4 +171,5 @@ def team_names
   game_hash.each do |location, hash|
     teams.push(hash[:team_name])
   end
+  teams
 end
