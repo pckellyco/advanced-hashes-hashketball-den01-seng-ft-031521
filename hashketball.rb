@@ -167,7 +167,8 @@ def team_colors(team)
 end
 
 def team_names
+  teams = []
   game_hash.each do |location, hash|
-    team_names = hash[:team_name]
+    teams.push(hash[:team_name])
   end
 end
