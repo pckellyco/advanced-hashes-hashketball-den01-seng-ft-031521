@@ -179,9 +179,13 @@ def player_numbers(team)
   game_hash.each do |location, team_info|
     players_info = game_hash[location][:players]
     if team_info.has_value?(team)
-      team_jersey_nums.push("true")
+      players_info.each do |hash|
+        jersey_number = hash[:number]
+        team_jersey_nums.push(jersey_number)
+        binding.pry
       end
     end
   end
+  team_jersey_nums
 end
 end
