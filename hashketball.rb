@@ -208,7 +208,7 @@ def big_shoe_rebounds
       if hash[:shoe] > largest_shoe
         largest_shoe = hash[:shoe]
         rebounds = hash[:rebounds]
-        binding.pry
+        
       end
     end
   end
