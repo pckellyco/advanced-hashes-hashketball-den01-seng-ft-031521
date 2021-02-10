@@ -183,6 +183,7 @@ def player_numbers(team)
       players_info.each do |hash|
       if hash.has_value?(team_info)
         jersey_number = hash[:number]
+        binding.pry
         team_jersey_nums.push(jersey_number)
       end
     end
