@@ -175,15 +175,17 @@ def team_names
 end
 
 def player_numbers(team)
+  team_jersey_nums = []
   game_hash.each do |location, team_info|
     team_name = game_hash[location][:team_name]
-    players_info = game_hash[location][:players]
-    binding.pry
-    players_info.each do |hash|
+    if team_name == team
+      players_info = game_hash[location][:players]
+      players_info.each do |hash|
       if hash.has_value?(team_info)
         jersey_number = hash[:number]
-        return jersey_number
+        team_jersey_nums.push(jersey_number)
       end
     end
   end
+  team_jersey_nums
 end
