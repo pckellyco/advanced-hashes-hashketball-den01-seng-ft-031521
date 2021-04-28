@@ -1,3 +1,6 @@
+# require './hashketball.rb'
+require 'pry'
+
 # Write your code below game_hash
 def game_hash
   {
@@ -126,4 +129,140 @@ def game_hash
   }
 end
 
-# Write code here
+def home_team
+  game_hash[:home]
+end
+
+def away_team
+  game_hash[:away]
+end
+
+def players
+  game_hash[:home][:players].concat(game_hash[:away][:players])
+end
+
+
+def num_points_scored player_name
+  players.find do | player | 
+      player[:player_name] == player_name
+  end[:points]
+end
+
+def shoe_size player_name
+  players.find do | player | 
+      player[:player_name] == player_name
+  end[:shoe]
+end
+
+def team_colors(team)
+  matching_team_name = game_hash.find do 
+    |location, team_info| team_info[:team_name] == team;
+  end
+  binding.pry
+  matching_team_name[1][:colors] 
+  #how do i make the [0] dynamic? how do i access location? why do i need values
+end
+
+def team_names
+  [game_hash.values[0][:team_name], game_hash.values[1][:team_name]]
+
+  # game_hash.values.map{|hash| hash[:team_name]}
+end
+
+names = team_names 
+colors = team_colors "Brooklyn Nets"
+binding.pry
+
+
+
+# brook = team_colors "Brooklyn Nets";
+# charlotte = team_colors "Charlotte Hornets"
+# binding.pry
+
+# # check if game_hash[team][players][player_name] == player
+# # if name matches return score
+
+# require 'pry'
+# def num_points_scored(name)
+#   game_hash.each do |location, team_info|
+#     players_info = game_hash[location][:players]
+#     players_info.each do |hash|
+#       if hash.has_value?(name)
+#         points_scored = hash[:points]
+#         return points_scored
+#       end
+#     end
+#   end
+# end
+
+# def shoe_size(name)
+#   game_hash.each do |location, team_info|
+#     players_info = game_hash[location][:players]
+#     players_info.each do |hash|
+#       if hash.has_value?(name)
+#         shoe_size = hash[:shoe]
+#         return shoe_size
+#       end
+#     end
+#   end
+# end
+
+# def team_colors(team)
+#   game_hash.each do |location, team_info|
+#     teams = game_hash[location]
+#       if teams.has_value?(team)
+#         team_colors = teams[:colors]
+#         return team_colors
+#       end
+#     end
+# end
+
+# def team_names
+#   teams = []
+#   game_hash.each do |location, hash|
+#     teams.push(hash[:team_name])
+#   end
+#   teams
+# end
+
+# def player_numbers(team)
+#   team_jersey_nums = []
+#   game_hash.each do |location, team_info|
+#     players_info = game_hash[location][:players]
+#     if team_info.has_value?(team)
+#       players_info.each do |hash|
+#         jersey_number = hash[:number]
+#         team_jersey_nums.push(jersey_number)
+#       end
+#     end
+#   end
+#   team_jersey_nums
+# end
+
+# def player_stats(name)
+#   game_hash.each do |location, team_info|
+#     players_info = game_hash[location][:players]
+#     players_info.each do |hash|
+#       if hash.has_value?(name)
+#         return hash
+#       end
+#     end
+#   end
+# end
+
+# def big_shoe_rebounds
+#   largest_shoe = 0
+#   rebounds = nil
+#   game_hash.each do |location, team_info|
+#     players_info = game_hash[location][:players]
+#     players_info.each do |player|
+#       if player[:shoe] > largest_shoe
+#         largest_shoe = player[:shoe]
+#         rebounds = player[:rebounds]
+#       end
+#     end
+#   end
+#   rebounds
+# end
+
+
